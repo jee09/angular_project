@@ -9,29 +9,33 @@
 
 </head>
 <body>
-<div class="wrap">
-  <div class="login">
-    <h2>Login</h2>
-    <div class="login_id">
-      <h4>아이디</h4>
-      <input type="email" name="" id="" placeholder="Email">
-    </div>
-    <div class="login_pw">
-      <h4>비밀번호</h4>
-      <input type="password" name="" id="" placeholder="Password">
-    </div>
-    <div class="login_etc">
-      <div class="checkbox">
-        <input type="checkbox" name="" id=""> 로그인 상태 유지
+<form [formGroup]="form">
+  <div class="wrap">
+    <div class="login">
+      <h2>Login</h2>
+      <div class="login_id">
+        <h4>아이디</h4>
+        <input type="email" formControlName="loginID" placeholder="아이디">
       </div>
-      <div class="ip_pw">
-        <a href="">IP 보안</a>
+      <div class="login_pw">
+        <h4>비밀번호</h4>
+        <input type="password" formControlName="loginPW" placeholder="비밀번호">
       </div>
-    </div>
-    <div class="submit">
-      <input type="submit" value="로그인">
+      <div class="login_etc">
+        <div class="checkbox">
+          <input type="checkbox" name="" id=""> 로그인 상태 유지
+        </div>
+        <div class="ip_pw">
+          <a href="">IP 보안</a>
+        </div>
+      </div>
+      <button (click)="Login()" [disabled]="!form.valid">
+        <div class="submit">
+          <input type="submit" value="로그인">
+        </div>
+      </button>
     </div>
   </div>
-</div>
+</form>
 </body>
 </html>
