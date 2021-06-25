@@ -10,11 +10,11 @@ import {subscribeOn} from "rxjs/operators";
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  url = "https://jsonplaceholder.typicode.com/todos";
+  url = "https://jsonplaceholder.typicode.com/users";
 
   form: FormGroup;
 
-  constructor(@Inject(FormBuilder) formBuilder: FormBuilder, public http:HttpClient
+  constructor(@Inject(FormBuilder) formBuilder: FormBuilder, public http: HttpClient
   ) {
     this.form = formBuilder.group({
       loginID: [''],
@@ -23,13 +23,17 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.http.get(this.url).pipe().subscribe(
+      res =>
+      {
+        console.log(res);
+      });
 
   }
 
   Login(): void {
     console.log(this.form.value["loginID"]);
     console.log(this.form.value["loginPW"]);
-
   }
 
 }
