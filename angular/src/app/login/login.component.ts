@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
     this.http.get(this.url).pipe().subscribe(
       res =>
       {
-        this.router.navigate(['/', 'info']).then(r =>
+        this.router.navigate(['/', 'dashboard']).then(r =>
         {
           console.log("res", res);
         });
